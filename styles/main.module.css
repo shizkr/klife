@@ -1,0 +1,24 @@
+/* 왼쪽 사이드바 전체 컨테이너 */
+.sidebar {
+  width: 14rem; /* 64px x 4 = 256px */
+  background-color: #feffff; /* Tailwind의 bg-gray-100 */
+  padding: 24px;
+  padding-left: 38px; /* ← 왼쪽 공간을 명확히 확보 */
+  box-shadow: 2px 0 4px #d544441a;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* 메뉴 리스트 항목 여백 */
+.menuItem {
+  margin-bottom: 16px;
+  padding-left: 16px; /* 텍스트와 아이콘 간 거리 확보 */
+  color: #1e40af; /* Tailwind text-blue-800 */
+  text-decoration: none;
+  display: block;
+}
+
+.menuItem:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}

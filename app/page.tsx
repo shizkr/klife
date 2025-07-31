@@ -17,34 +17,19 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex min-h-screen">
-      {/* 왼쪽 메뉴 */}
-      <aside className="w-64 bg-gray-100 pl-2 shadow-md h-screen overflow-y-auto">
-        <h2 className="text-lg font-semibold mb-4 pl-4">📂 메뉴</h2>
-    <ul className="space-y-2 text-sm">
-
-
-  </ul>
-      </aside>
-
-      {/* 오른쪽 콘텐츠 중앙 정렬 */}
-      <main className="flex-1 flex items-center justify-center">
-        <div className="max-w-md w-full text-center">
-          <h1 className="text-2xl font-bold mb-6">📋 게시글 목록</h1>
-          <ul className="space-y-3">
-            {posts?.map((post) => (
-              <li key={post.id}>
-                <Link
-                  href={`/post/${post.id}`}
-                  className="block bg-blue-50 hover:bg-blue-100 rounded-md p-3 text-blue-700 font-medium shadow-sm"
-                >
-                  {post.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </main>
+    <div className="max-w-2xl mx-auto">
+      <ul className="space-y-2">
+        {posts?.map((post) => (
+          <li key={post.id}>
+            <Link
+              href={`/post/${post.id}`}
+              className="block bg-blue-50 hover:bg-blue-100 rounded-md p-3 text-blue-700 font-medium shadow-sm"
+            >
+              {post.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

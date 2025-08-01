@@ -3,6 +3,8 @@ import { supabase } from '../lib/supabase'
 
 export default async function Home() {
   const { data: posts, error } = await supabase.from('posts').select('*')
+  .order('created_at', { ascending: false })
+  .limit(20);
 
   if (error) {
     console.error('Supabase Error:', error)
@@ -18,14 +20,15 @@ export default async function Home() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <ul className="space-y-2">
+      <ul className="space-y-4">
         {posts?.map((post) => (
           <li key={post.id}>
             <Link
               href={`/post/${post.id}`}
-              className="block bg-blue-50 hover:bg-blue-100 rounded-md p-3 text-blue-700 font-medium shadow-sm"
+              className="block bg-blue-50 hover:bg-blue-100 rounded-md p-4 text-indigo-600 font-medium shadow-sm"
             >
-              {post.title}
+              <h2 className="text-lg font-bold mb-2">{post.title}</h2>
+              <p className="text-gray-700 text-sm line-clamp-2">{post.content}</p>
             </Link>
           </li>
         ))}

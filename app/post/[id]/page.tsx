@@ -88,14 +88,14 @@ export default function PostPage() {
   if (error) return <p className="text-red-500">{error}</p>
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-      <p className="text-gray-800 text-lg leading-relaxed whitespace-pre-line">
+    <div className="max-w-5xl mx-auto p-6">
+      <h1 className="text-3xl font-extrabold mb-4 text-indigo-700 drop-shadow-md">{post.title}</h1>
+      <p className="text-gray-700 text-base leading-relaxed whitespace-pre-line bg-indigo-50 p-4 rounded-xl shadow-sm">
         {post.content}
       </p>
 
       <div className="mt-10">
-        <h2 className="text-2xl font-semibold mb-4">💬 댓글</h2>
+        <h2 className="text-5xl font-semibold mb-4">💬 댓글</h2>
 
         <div className="space-y-4">
           {comments.map((comment) => (

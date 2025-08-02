@@ -18,7 +18,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       <ul className="space-y-4">
         {posts?.map((post) => (
           <li key={post.id}>

@@ -10,6 +10,10 @@ export default function WritePage() {
   const router = useRouter();
 
   const submitPost = async () => {
+    if (!title.trim() || !content.trim()) {
+      alert('제목과 내용을 모두 입력해주세요!');
+      return;
+    }
     const { data, error } = await supabase.from('posts').insert({
       board_type: 'investment',
       title,
@@ -27,7 +31,7 @@ export default function WritePage() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
+    <div className="max-w-5xl mx-auto p-6">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">💸 투자 & 경제 정보</h1>
         <h2 className="text-2xl font-bold">✏️ 글쓰기</h2>

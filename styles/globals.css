@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-size: 18px; /* 기본 폰트 크기 키우기 */
+}
+
 /* 커스텀 전역 스타일 추가 예시 */
 body {
+  font-size: 1rem;  /* 보통 1rem은 18px이 됨 */
+  line-height: 2.5; /* 읽기 편하게 행간 설정 */
   font-family: 'Inter', sans-serif;
 }
 

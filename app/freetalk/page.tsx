@@ -1,25 +1,36 @@
 import Link from 'next/link'
 import { supabase } from '../../lib/supabase'
 
+const boardTitle = '🫶🏻 자유 이야기방';
+const boardType = 'freetalk';
+
 export default async function FreeTalkPage() {
   const { data: posts, error } = await supabase
   .from('posts')
   .select('*')
-  .eq('board_type', 'freetalk')
+  .eq('board_type', boardType)
   .order('created_at', { ascending: false });
 
+
   return (
-    <div className="max-w-3xl mx-auto p-6">
+    <div className="max-w-5xl mx-auto p-6">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">🫶🏻 자유 이야기방</h1>
+        <h1 className="text-2xl font-bold">{boardTitle}</h1>
         <Link
-          href="/freetalk/write"
-          className="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+          href={{
+            pathname: '/write',
+            query: {
+              board_type: boardType,
+              board_title: boardTitle,
+            },
+          }}
+          className="bg-blue-800 text-white text-sm px-4 py-2 rounded hover:bg-blue-700"
+        >
           ✍️ 글쓰기
         </Link>
       </div>
 
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       <ul className="space-y-4">
         {posts?.map((post) => (
           <li key={post.id}>

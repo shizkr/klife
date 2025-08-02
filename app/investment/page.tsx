@@ -1,25 +1,36 @@
 import Link from 'next/link'
 import { supabase } from '../../lib/supabase'
 
+const boardTitle = '💸 투자 & 경제 정보';
+const boardType = 'investment';
+
 export default async function InvestMentTalkPage() {
   const { data: posts, error } = await supabase
   .from('posts')
   .select('*')
-  .eq('board_type', 'investment')
+  .eq('board_type', boardType)
   .order('created_at', { ascending: false });
 
+
   return (
-    <div className="max-w-3xl mx-auto p-6">
+    <div className="max-w-5xl mx-auto p-6">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">💸 투자 & 경제 정보</h1>
+        <h1 className="text-2xl font-bold">{boardTitle}</h1>
         <Link
-          href="/investment/write"
-          className="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+          href={{
+            pathname: '/write',
+            query: {
+              board_type: boardType,
+              board_title: boardTitle,
+            },
+          }}
+          className="bg-blue-800 text-white text-sm px-4 py-2 rounded hover:bg-blue-700"
+        >
           ✍️ 글쓰기
         </Link>
       </div>
 
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       <ul className="space-y-4">
         {posts?.map((post) => (
           <li key={post.id}>
@@ -28,7 +39,7 @@ export default async function InvestMentTalkPage() {
               className="block bg-blue-50 hover:bg-blue-100 rounded-md p-4 text-indigo-600 font-medium shadow-sm"
             >
               <h2 className="text-lg font-bold mb-2">{post.title}</h2>
-              <p className="text-gray-700 text-sm line-clamp-2">{post.content}</p>
+              <p className="text-gray-700 text-sm line-clamp-5">{post.content}</p>
             </Link>
           </li>
         ))}

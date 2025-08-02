@@ -6,7 +6,8 @@
 
 .leftMenu {
   width: 12rem; /* 약 192px */
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  margin-left: 5rem;
 }
 
 .menuList {

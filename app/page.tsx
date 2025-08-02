@@ -3,8 +3,7 @@ import { supabase } from '../lib/supabase'
 
 export default async function Home() {
   const { data: posts, error } = await supabase.from('posts').select('*')
-  .order('created_at', { ascending: false })
-  .limit(20);
+  .order('created_at', { ascending: false });
 
   if (error) {
     console.error('Supabase Error:', error)
@@ -28,7 +27,7 @@ export default async function Home() {
               className="block bg-blue-50 hover:bg-blue-100 rounded-md p-4 text-indigo-600 font-medium shadow-sm"
             >
               <h2 className="text-lg font-bold mb-2">{post.title}</h2>
-              <p className="text-gray-700 text-sm line-clamp-2">{post.content}</p>
+              <p className="text-gray-700 text-sm line-clamp-4">{post.content}</p>
             </Link>
           </li>
         ))}

@@ -11,7 +11,7 @@ export default function WritePage() {
 
   const submitPost = async () => {
     const { data, error } = await supabase.from('posts').insert({
-      board_type: 'freetalk',
+      board_type: 'investment',
       title,
       content
     });
@@ -23,13 +23,13 @@ export default function WritePage() {
     }
 
     console.log('✅ 저장된 데이터:', data);
-    router.push('/freetalk');
+    router.push('/investment');
   };
 
   return (
     <div className="max-w-2xl mx-auto p-6">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">🫶🏻 우리들의 이야기방</h1>
+        <h1 className="text-2xl font-bold">💸 투자 & 경제 정보</h1>
         <h2 className="text-2xl font-bold">✏️ 글쓰기</h2>
       </div>
       <input

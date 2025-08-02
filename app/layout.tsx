@@ -21,9 +21,9 @@ export default function RootLayout({
           {/* 왼쪽 메뉴 */}
           <nav className={styles.leftMenu}>
             <ul className={styles.menuList}>
-              <li><Link href="/freetalk" className={styles.menuItem}>🫶🏻 이야기방</Link></li>
-              <li><Link href="/boards" className={styles.menuItem}>🔍 전체 게시판</Link></li>
-              <li><Link href="/notice" className={styles.menuItem}>📰 공지사항</Link></li>
+              <li><Link href="/freetalk" className={styles.menuItem}>🫶🏻 자유 이야기방</Link></li>
+              <li><Link href="/investment" className={styles.menuItem}>💸 투자 & 경제 정보</Link></li>
+              <li><Link href="/immigrantlife" className={styles.menuItem}>🇺🇸 이민 생활</Link></li>
             </ul>
           </nav>
 

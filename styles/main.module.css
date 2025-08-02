@@ -1,12 +1,12 @@
 .layout {
   display: flex;
   min-height: 100vh;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .leftMenu {
-  width: 6rem; /* 약 192px */
-  margin-right: 1.5rem;
+  width: 12rem; /* 약 192px */
+  margin-right: 1rem;
 }
 
 .menuList {
@@ -16,7 +16,7 @@
 }
 
 .menuItem {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: #1e40af;
   text-decoration: none;
 }
